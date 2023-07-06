@@ -20,6 +20,7 @@ in
       "git"
       "libvirtd"
       "deluge"
+      "plugdev"
     ];
 
     packages = [ pkgs.home-manager ];
