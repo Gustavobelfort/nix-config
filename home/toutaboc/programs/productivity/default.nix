@@ -5,5 +5,6 @@
     ./1password.nix
     ./keybase.nix
     ./kitty.nix
+    ./ledger.nix
   ];
 }

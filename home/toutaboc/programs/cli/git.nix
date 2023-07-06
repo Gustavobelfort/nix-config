@@ -29,7 +29,7 @@ in
       feature.manyFiles = true;
       init.defaultBranch = "main";
       user.signingkey = "6F31DDD2207FB10C";
-      commit.gpgSign = true;
+      # commit.gpgSign = true;
       gpg.program = "${config.programs.gpg.package}/bin/gpg2";
     };
     lfs.enable = true;
