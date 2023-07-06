@@ -7,6 +7,7 @@
     ./fish.nix
     # ./locale.nix
     ./nix.nix
+    ./ledger.nix
     # ./openssh.nix
     # ./optin-persistence.nix
     # ./podman.nix
