@@ -37,6 +37,7 @@
   };
 
   hardware = {
+    ledger.enable = true;
     opengl = {
       enable = true;
       extraPackages = with pkgs; [ amdvlk ];
