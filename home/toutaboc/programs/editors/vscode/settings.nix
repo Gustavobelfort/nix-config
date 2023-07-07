@@ -72,6 +72,8 @@
   "workbench.panel.defaultLocation" = "bottom";
   "workbench.layoutControl.enabled" = false;
 
+  "yaml.format.bracketSpacing" = false;
+
   "zenMode.centerLayout" = false;
   "zenMode.fullScreen" = false;
   "zenMode.hideLineNumbers" = false;
