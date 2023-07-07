@@ -29,6 +29,8 @@
     httpie # Better curl
     diffsitter # Better diff
     jq # JSON pretty printer and manipulator
+    
+    xclip # Clipboard manager
 
     nil # Nix LSP
     nixfmt # Nix formatter
