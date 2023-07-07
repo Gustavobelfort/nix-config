@@ -353,7 +353,10 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = function()
+    opts = function(_, opts)
+
+      opts.ignore_install = { 'help' }
+
       return vim.tbl_deep_extend("force", require("plugins.configs.treesitter"), {
         ensure_installed = {
           "c",

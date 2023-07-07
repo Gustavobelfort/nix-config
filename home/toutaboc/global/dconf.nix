@@ -23,9 +23,12 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+      cursor-theme = "Numix-Cursor";
       enable-hot-corners = false;
       font-antialiasing = "grayscale";
       font-hinting = "slight";
+      gtk-theme = "palenight";
+      icon-theme = "Papirus-Dark";
     };
 
     "org/gnome/desktop/peripherals/mouse" = {
@@ -37,10 +40,39 @@ with lib.hm.gvariant;
       two-finger-scrolling-enabled = true;
     };
 
+    "org/gnome/desktop/screensaver" = {
+      color-shading-type = "solid";
+      picture-options = "zoom";
+      picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
+      primary-color = "#241f31";
+      secondary-color = "#000000";
+    };
+
     "org/gnome/desktop/wm/keybindings" = {
+      activate-window-menu = [];
+      begin-move = [];
+      begin-resize = [];
+      maximize = [];
+      minimize = [];
       switch-input-source = [];
       switch-input-source-backward = [];
       switch-to-workspace-1 = [ "<Shift><Super>1" ];
+      toggle-maximized = [];
+      unmaximize = [];
+    };
+
+    "org/gnome/mutter" = {
+      dynamic-workspaces = true;
+      edge-tiling = false;
+    };
+
+    "org/gnome/mutter/keybindings" = {
+      toggle-tiled-left = [];
+      toggle-tiled-right = [];
+    };
+
+    "org/gnome/nautilus/window-state" = {
+      initial-size = mkTuple [ 912 984 ];
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -58,6 +90,7 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       app-picker-layout = "[{'org.gnome.Geary.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Maps.desktop': <{'position': <4>}>, 'org.gnome.Extensions.desktop': <{'position': <5>}>, 'org.gnome.Photos.desktop': <{'position': <6>}>, 'org.gnome.Totem.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'simple-scan.desktop': <{'position': <9>}>, 'org.gnome.Settings.desktop': <{'position': <10>}>, 'gnome-system-monitor.desktop': <{'position': <11>}>, 'Utilities': <{'position': <12>}>, 'yelp.desktop': <{'position': <13>}>, 'org.gnome.Cheese.desktop': <{'position': <14>}>, '1password.desktop': <{'position': <15>}>, 'org.gnome.Calendar.desktop': <{'position': <16>}>, 'firefox.desktop': <{'position': <17>}>, 'fish.desktop': <{'position': <18>}>, 'org.kde.kdeconnect-settings.desktop': <{'position': <19>}>, 'cups.desktop': <{'position': <20>}>, 'org.gnome.Music.desktop': <{'position': <21>}>, 'nvim.desktop': <{'position': <22>}>, 'nixos-manual.desktop': <{'position': <23>}>}, {'ranger.desktop': <{'position': <0>}>, 'org.gnome.TextEditor.desktop': <{'position': <1>}>, 'org.gnome.Tour.desktop': <{'position': <2>}>, 'org.gnome.Epiphany.desktop': <{'position': <3>}>, 'xterm.desktop': <{'position': <4>}>}]";
       disable-user-extensions = false;
+      disabled-extensions = [];
       enabled-extensions = [ "gsconnect@andyholmes.github.io" "forge@jmmaranan.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "user-theme@gnome-shell-extensions.gcampax.github.com" ];
       favorite-apps = [ "org.gnome.Nautilus.desktop" "slack.desktop" "spotify.desktop" "code.desktop" "discord.desktop" "keybase.desktop" "chromium-browser.desktop" "kitty.desktop" ];
       welcome-dialog-last-shown-version = "44.2";
@@ -66,6 +99,10 @@ with lib.hm.gvariant;
     "org/gnome/shell/extensions/Logo-menu" = {
       menu-button-icon-image = 23;
       menu-button-icon-size = 23;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell" = {
+      hacks-level = 0;
     };
 
     "org/gnome/shell/extensions/forge" = {
@@ -126,8 +163,59 @@ with lib.hm.gvariant;
       workspace-active-tile-toggle = [ "<Shift><Super>w" ];
     };
 
+    "org/gnome/shell/extensions/net/gfxmonk/impatience" = {
+      speed-factor = 0.70;
+    };
+
+    "org/gnome/shell/extensions/rounded-window-corners" = {
+      border-width = 2;
+      custom-rounded-corner-settings = "@a{sv} {}";
+      debug-mode = false;
+      enable-preferences-entry = true;
+      global-rounded-corner-settings = "{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}";
+      settings-version = mkUint32 5;
+      tweak-kitty-terminal = true;
+    };
+
+    "org/gnome/shell/extensions/search-light" = {
+      blur-brightness = 0.6;
+      blur-sigma = 30.0;
+      entry-font-size = 1;
+      monitor-count = 1;
+      popup-at-cursor-monitor = true;
+      scale-height = 0.1;
+      scale-width = 0.1;
+      shortcut-search = [ "<Control>space" ];
+      show-panel-icon = false;
+    };
+
+    "org/gnome/shell/extensions/space-bar/appearance" = {
+      active-workspace-padding-v = 2;
+      empty-workspace-padding-v = 2;
+      inactive-workspace-padding-v = 2;
+      workspaces-bar-padding = 12;
+    };
+
+    "org/gnome/shell/extensions/space-bar/behavior" = {
+      show-empty-workspaces = true;
+      smart-workspace-names = true;
+    };
+
+    "org/gnome/shell/extensions/top-bar-organizer" = {
+      center-box-order = [ "dateMenu" "Media Player" ];
+      left-box-order = [ "Space Bar" "appMenu" "Notifications" "menuButton" "activities" ];
+      right-box-order = [ "dwellClick" "keyboard" "screenRecording" "vitalsMenu" "quickSettings" "a11y" "screenSharing" ];
+    };
+
     "org/gnome/shell/extensions/user-theme" = {
       name = "Orchis-dark";
+    };
+
+    "org/gnome/shell/extensions/vitals" = {
+      hide-icons = false;
+      hide-zeros = true;
+      show-battery = true;
+      use-higher-precision = true;
     };
 
     "org/gnome/shell/world-clocks" = {
@@ -140,7 +228,7 @@ with lib.hm.gvariant;
 
     "org/gtk/gtk4/settings/color-chooser" = {
       custom-colors = [ (mkTuple [ 0.0 0.0 ]) ];
-      selected-color = mkTuple [ true 0.8705882430076599 ];
+      selected-color = mkTuple [ true 0.870588 ];
     };
 
   };
