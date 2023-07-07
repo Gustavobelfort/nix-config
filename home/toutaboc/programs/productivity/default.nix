@@ -6,5 +6,6 @@
     ./keybase.nix
     ./kitty.nix
     ./ledger.nix
+    ./postgresql.nix
   ];
 }
