@@ -43,9 +43,9 @@ This repository contains the following configuration files:
 
 > The flake.nix file is particularly important. It describes the inputs and outputs of the project. Inputs include various repositories such as nixpkgs, hardware, home-manager, and firefox-addons. Outputs include NixOS modules, Home Manager modules, overlays, packages, devShells, and more. This file is the heart of the project, orchestrating how everything works together.
 
-📜 License
+## 📜 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-🙏 Acknowledgments
+## 🙏 Acknowledgments
 NixOS Community: For providing a great Linux distribution. 🐧
 [Misterio77](https://github.com/Misterio77/nix-config): For the inspiration <3
