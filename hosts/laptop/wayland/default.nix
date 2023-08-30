@@ -28,9 +28,7 @@
       qq
       aichat
       chatgpt-cli
-      go-cqhttp
     ]) ++ (with config.nur.repos;[
-      # linyinfeng.icalingua-plus-plus
     ]);
   };
   boot = {
@@ -39,7 +37,7 @@
     bootspec.enable = true;
     loader = {
       systemd-boot = {
-        enable = lib.mkForce true; #lanzaboote
+        enable = lib.mkForce true;
         consoleMode = "auto";
       };
       efi = {
