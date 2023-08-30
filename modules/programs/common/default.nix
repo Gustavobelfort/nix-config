@@ -1,0 +1,18 @@
+[
+  ./gpg
+  ./lazygit
+  ./music
+  ./neofetch
+  ./joshuto
+  ./resource_monitor
+  ./search
+  ./kitty
+  ./emanote
+  ./chromium
+  ./slack
+  ./discord
+  ./keybase
+  ./1password
+  ./spotify
+  ./ledger
+]
