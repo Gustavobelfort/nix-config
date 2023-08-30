@@ -7,7 +7,6 @@
   ./resource_monitor
   ./search
   ./kitty
-  ./emanote
   ./chromium
   ./slack
   ./discord
