@@ -74,11 +74,6 @@
               '';
               category = "Tools";
             };
-            disko = {
-              description = "Pre-install,automatically partition and mount";
-              exec = "sh ./scripts/disko.sh";
-              category = "Tools";
-            };
           };
 
           devShells = {
@@ -148,7 +143,6 @@
       mission-control.url = "github:Platonic-Systems/mission-control";
       treefmt-nix.url = "github:numtide/treefmt-nix";
       emacs-overlay.url = "github:nix-community/emacs-overlay";
-      disko.url = "github:nix-community/disko";
       emanote.url = "github:srid/emanote";
       joshuto.url = "github:kamiyaa/joshuto";
       go-musicfox.url = "github:go-musicfox/go-musicfox";
