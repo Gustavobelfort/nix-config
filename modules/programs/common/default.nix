@@ -14,4 +14,5 @@
   ./1password
   ./spotify
   ./ledger
+  ./runelite
 ]
