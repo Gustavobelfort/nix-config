@@ -130,7 +130,12 @@
 
   services.xserver = {
     xkbOptions = "caps:escape";
+    layout = "br";
+    xkbVariant = "thinkpad";
   };
+
+  # Configure console keymap
+  console.keyMap = "br-abnt2";
   console.useXkbConfig = true;
 
   services = {
