@@ -15,5 +15,4 @@
   ./spotify
   ./ledger
   ./runelite
-  ./appimage-run
 ]
