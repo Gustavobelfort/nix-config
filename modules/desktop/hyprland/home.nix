@@ -36,9 +36,9 @@
       # source = ~/.config/hypr/myColors.conf
 
       input {
-        kb_layout = us
-        kb_variant =
-        kb_model =
+        kb_layout = br
+        kb_variant = thinkpad
+        kb_model = br-abnt2
         kb_options = caps:escape
         kb_rules =
 
