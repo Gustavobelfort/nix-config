@@ -1,64 +1,60 @@
-{ config, lib, inputs, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+# Let-In ----------------------------------------------------------------------------------------{{{
+let
+  inherit (lib) concatStringsSep optional;
+  inherit (config.lib.file) mkOutOfStoreSymlink;
 
+  # customNvChad = ./nvchad-custom;
+  populateEnv = ./populate-nvim-env.py;
+
+  populateEnvScript = ''
+    mkdir -p ${config.xdg.dataHome}/nvim/site/plugin
+    ${pkgs.python39}/bin/python ${populateEnv} -o ${config.xdg.dataHome}/nvim/site/plugin
+  '';
+  # }}}
+in
 {
-  nixpkgs.config = {
-    programs.npm.npmrc = ''
-      prefix = ''${HOME}/.npm-global
-    '';
+  # Neovim
+  # https://rycee.gitlab.io/home-manager/options.html#opt-programs.neovim.enable
+  programs.neovim.enable = true;
+
+  programs.neovim.viAlias = true;
+  programs.neovim.vimAlias = true;
+
+  # Config and plugins ------------------------------------------------------------------------- {{{
+
+  xdg.configFile."nvim" = {
+    source = "${pkgs.nvchad}";
   };
-  programs = {
-    neovim = {
-      enable = true;
-      viAlias = true;
-      withPython3 = true;
-      withNodeJs = true;
-      extraPackages = [
-      ];
-      #-- Plugins --#
-      plugins = with pkgs.vimPlugins;[ ];
-      #-- --#
-    };
-  };
-  home = {
-    packages = with pkgs; [
-      #-- LSP --#
-      nodePackages_latest.typescript
-      nodePackages_latest.typescript-language-server
-      nodePackages_latest.vscode-langservers-extracted
-      nodePackages_latest.bash-language-server
-      yamlfix
-      yamlfmt
-      # rnix-lsp
-      # nil
-      nixd
-      lua-language-server
-      gopls
-      pyright
-      zk
-      rust-analyzer
-      clang-tools
-      haskell-language-server
-      #-- tree-sitter --#
-      tree-sitter
-      #-- format --#
-      stylua
-      black
-      nixpkgs-fmt
-      rustfmt
-      beautysh
-      nodePackages.prettier
-      stylish-haskell
-      #-- Debug --#
-      lldb
-    ];
-  };
-  home.file = {
-    ".config/nvim".source =
-      pkgs.fetchFromGitHub {
-        owner = "NvChad";
-        repo = "NvChad";
-        rev = "refs/heads/v2.0";
-        sha256 = "sha256-tKMvKdB3jPSvcyewaOe8oak3pXhjAcLyyxgGMiMeqeU=";
-      };
-  };
+
+  home.packages = with pkgs; [
+    nvchad
+    (pkgs.writeShellScriptBin "update-nvim-env" ''
+      #
+      # update-nvim-env
+      #
+      # Update neovim env such that it can be used in neovide or other GUIs.
+
+      ${populateEnvScript}
+    '')
+  ];
+
+  home.activation.neovim = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    echo "Populating neovim env..."
+    ${populateEnvScript}
+  '';
+
+  programs.bash.initExtra = lib.mkAfter ''
+    export EDITOR="${config.programs.neovim.package}/bin/nvim"
+  '';
+
+  programs.zsh.initExtra = lib.mkAfter ''
+    export EDITOR="${config.programs.neovim.package}/bin/nvim"
+  '';
+
+  # Required packages -------------------------------------------------------------------------- {{{
+
+  programs.neovim.extraPackages = with pkgs; [ ];
+  # }}}
 }
+# vim: foldmethod=marker
