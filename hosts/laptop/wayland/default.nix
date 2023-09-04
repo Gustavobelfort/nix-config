@@ -136,7 +136,7 @@
 
   # Configure console keymap
   console.keyMap = "br-abnt2";
-  console.useXkbConfig = true;
+  # console.useXkbConfig = true;
 
   services = {
     dbus.packages = [ pkgs.gcr ];
