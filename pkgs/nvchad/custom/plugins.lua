@@ -188,9 +188,9 @@ return {
           formatting.stylua,
 
           -- web stuffs
-          formatting.prettier.with({
-            extra_filetypes = { "svelte" },
-          }), -- js/ts formatter
+          -- formatting.prettier.with({
+          --   extra_filetypes = { "svelte" },
+          -- }), -- js/ts formatter
           diagnostics.eslint_d.with({ -- js/ts linter
             -- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
             condition = function(utils)
@@ -301,8 +301,8 @@ return {
           "pyright",
 
           -- javascript
-          "prettier",
-          "prettierd",
+          -- "prettier",
+          -- "prettierd",
 
           -- yaml
           "yaml-language-server",
