@@ -1,24 +1,57 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ config, lib, inputs, pkgs, ... }:
 
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
+{
+  nixpkgs.config = {
+    programs.npm.npmrc = ''
+      prefix = ''${HOME}/.npm-global
+    '';
   };
-
-  home.packages = with pkgs; [
-    nodejs # Needed for LSPs and stuff
-    cargo
-    unzip
-    clang
-  ];
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
+  programs = {
+    neovim = {
+      enable = true;
+      viAlias = true;
+      withPython3 = true;
+      withNodeJs = true;
+      extraPackages = [
+      ];
+      #-- Plugins --#
+      plugins = with pkgs.vimPlugins;[ ];
+      #-- --#
+    };
   };
-
+  home = {
+    packages = with pkgs; [
+      #-- LSP --#
+      nodePackages_latest.typescript
+      nodePackages_latest.typescript-language-server
+      nodePackages_latest.vscode-langservers-extracted
+      nodePackages_latest.bash-language-server
+      yamlfix
+      yamlfmt
+      # rnix-lsp
+      # nil
+      nixd
+      lua-language-server
+      gopls
+      pyright
+      zk
+      rust-analyzer
+      clang-tools
+      haskell-language-server
+      #-- tree-sitter --#
+      tree-sitter
+      #-- format --#
+      stylua
+      black
+      nixpkgs-fmt
+      rustfmt
+      beautysh
+      nodePackages.prettier
+      stylish-haskell
+      #-- Debug --#
+      lldb
+    ];
+  };
   home.file = {
     ".config/nvim".source =
       pkgs.fetchFromGitHub {
