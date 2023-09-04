@@ -7,8 +7,9 @@ return {
 			sources = {
 				-- you must download code formatter by yourself!
 				require("null-ls").builtins.formatting.stylua,
+				require("null-ls").builtins.formatting.yamlfmt,
+				require("null-ls").builtins.formatting.yamlfix,
 				require("null-ls").builtins.formatting.black,
-				require("null-ls").builtins.formatting.prettier,
 				require("null-ls").builtins.formatting.gofmt,
 				require("null-ls").builtins.formatting.nixpkgs_fmt,
 				require("null-ls").builtins.formatting.beautysh,
