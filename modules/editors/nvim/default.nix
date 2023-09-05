@@ -58,7 +58,6 @@
       #-- python
       nodePackages.pyright # python language server
       python311Packages.black # python formatter
-      python311Packages.ruff-lsp
 
       #-- rust
       rust-analyzer
