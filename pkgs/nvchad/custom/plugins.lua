@@ -329,7 +329,7 @@ return {
           "svelte",
           "html",
           "java",
-          "help",
+          "vimdoc",
           "nix",
           "markdown",
           "markdown_inline",
