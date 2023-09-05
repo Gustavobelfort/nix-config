@@ -9,8 +9,8 @@ stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "AstroNvim";
     repo = "AstroNvim";
-    rev = "refs/heads/v3.36.8";
-    sha256 = "";
+    rev = "refs/tags/v3.36.8";
+    sha256 = "sha256-SWf4lKFgj6oHLKoaUWlTc/LslzeLfKbW/QVxFcZ9FIw=";
   };
 
   installPhase = ''
