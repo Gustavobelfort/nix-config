@@ -152,7 +152,7 @@
         flake = false;
       };
       astronvim = {
-        url = "github:AstroNvim/AstroNvim/v3.36.0";
+        url = "github:AstroNvim/AstroNvim/v3.36.8";
         flake = false;
       };
     };
