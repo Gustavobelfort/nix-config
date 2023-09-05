@@ -1,22 +1,5 @@
 {
   "nodes": {
-    "astronvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1693936438,
-        "narHash": "sha256-SWf4lKFgj6oHLKoaUWlTc/LslzeLfKbW/QVxFcZ9FIw=",
-        "owner": "AstroNvim",
-        "repo": "AstroNvim",
-        "rev": "b9ecfcf812f83574498277fb06c1e778caa25cbd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AstroNvim",
-        "ref": "v3.36.8",
-        "repo": "AstroNvim",
-        "type": "github"
-      }
-    },
     "check-flake": {
       "locked": {
         "lastModified": 1683070462,
@@ -1755,7 +1738,6 @@
     },
     "root": {
       "inputs": {
-        "astronvim": "astronvim",
         "emacs-overlay": "emacs-overlay",
         "emanote": "emanote",
         "flake-compat": "flake-compat",

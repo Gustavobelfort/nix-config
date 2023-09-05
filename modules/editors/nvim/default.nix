@@ -54,7 +54,9 @@ in
 
   # Required packages -------------------------------------------------------------------------- {{{
 
-  programs.neovim.extraPackages = with pkgs; [ ];
+  programs.neovim.extraPackages = with pkgs; [
+   nixpkgs-fmt
+  ];
   # }}}
 }
 # vim: foldmethod=marker
