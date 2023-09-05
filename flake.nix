@@ -151,10 +151,6 @@
         url = "github:inclyc/flake-compat";
         flake = false;
       };
-      astronvim = {
-        url = "github:AstroNvim/AstroNvim/v3.36.8";
-        flake = false;
-      };
     };
 
 }
