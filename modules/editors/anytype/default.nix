@@ -1,7 +1,5 @@
 args@{ config, pkgs, ... }:
 
 {
-  programs.anytype= {
-    enable = true;
-  };
+  home.packages = [ pkgs.anytype ];
 }
