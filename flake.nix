@@ -16,7 +16,7 @@
         inputs.mission-control.flakeModule
         inputs.treefmt-nix.flakeModule
       ];
-      perSystem = { config, inputs', pkgs, system, lib, ... }:
+      perSystem = { config, inputs, pkgs, system, lib, ... }:
         let
           pkgs = import nixpkgs {
             inherit system;
