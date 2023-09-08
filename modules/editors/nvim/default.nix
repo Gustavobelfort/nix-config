@@ -103,6 +103,7 @@
       jsonnet
       jsonnet-language-server
       hadolint # Dockerfile linter
+      helm-ls
 
       #-- Others
       taplo # TOML language server / formatter / validator

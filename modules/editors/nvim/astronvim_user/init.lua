@@ -369,6 +369,12 @@ return {
           offsetEncoding = "utf-8",
         },
       },
+      helm_ls = {
+        default_config = {
+          cmd = {"helm_ls", "serve"},
+          filetypes = {'helm'},
+        },
+      }
     },
     -- enable servers that installed by home-manager instead of mason
     servers = {
@@ -401,6 +407,7 @@ return {
       "dockerls",     -- dockerfile
       "jsonnet_ls",   -- jsonnet language server
       "terraformls",  -- terraform hcl
+      "helm_ls",      -- helm language server
     },
     formatting = {
       disabled = {},

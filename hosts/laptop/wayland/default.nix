@@ -126,9 +126,10 @@
       grim
       qt5.qtwayland
       pkgs.fprintd
+      flatpak
     ];
   };
-
+services.flatpak.enable = true;
   services.fprintd.enable = true;
   services.fprintd.tod.enable = true;
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090;
@@ -142,7 +143,9 @@
   # Configure console keymap
   console.keyMap = "br-abnt2";
   # console.useXkbConfig = true;
-
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
   services = {
     dbus.packages = [ pkgs.gcr ];
     getty.autologinUser = "${user}";
